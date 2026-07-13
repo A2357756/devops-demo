@@ -12,7 +12,7 @@ from app.login import router as login_router
 # 讓同一顆 image 跑出不同的版本字串，curl 一眼就看出流量打到哪個版本。
 VERSION = os.getenv("APP_VERSION", "v5.1")
 
-app = FastAPI(title="hello")
+app = FastAPI(title="hello:)")
 app.include_router(login_router)
 
 
