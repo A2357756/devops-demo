@@ -12,17 +12,17 @@ from app.login import router as login_router
 # 讓同一顆 image 跑出不同的版本字串，curl 一眼就看出流量打到哪個版本。
 VERSION = os.getenv("APP_VERSION", "v5.1")
 
-app = FastAPI(title="hello:)")
+app = FastAPI(title="hello")
 app.include_router(login_router)
 
 
 @app.get("/")
 def root():
     # version 字串之後做 blue-green / canary、確認新版上線時會用到
-    return {"service": "hello", "version": VERSION}
+    return {"service": "hello", "version": 123}
 
 
 @app.get("/health")
 def health():
     # 給 K8S liveness/readiness、Docker healthcheck 用
-    return {"status": "1"}
+    return {"status": "ok"}
