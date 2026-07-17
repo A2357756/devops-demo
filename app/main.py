@@ -22,6 +22,7 @@ def root():
     return {"service": "hello", "version": 78910}
 
 
+
 @app.get("/health")
 def health():
     # 給 K8S liveness/readiness、Docker healthcheck 用
